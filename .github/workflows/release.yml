@@ -5,44 +5,27 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
-  build-and-release:
+  goreleaser:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        goos: [linux, windows, darwin]
-        goarch: [amd64, arm64]
-
     steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-
-      - name: Set up Go
-        uses: actions/setup-go@v3
+      -
+        name: Checkout
+        uses: actions/checkout@v4
         with:
-          go-version: '1.24'
-
-      - name: Build
-        run: |
-          GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build \
-            -ldflags="-s -w" \
-            -o file-mapper-${{ matrix.goos }}-${{ matrix.goarch }} main.go
-
-      # Upload each binary as a Release asset
-      - name: Upload to Release
-        uses: svenstaro/upload-release-action@v2
+          fetch-depth: 0
+      -
+        name: Set up Go
+        uses: actions/setup-go@v5
+      -
+        name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v6
         with:
-          # This token is automatically provided by GitHub Actions
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-
-          # The file we just built
-          file: file-mapper-${{ matrix.goos }}-${{ matrix.goarch }}
-
-          # The name under which the binary will appear in the Release
-          asset_name: file-mapper-${{ matrix.goos }}-${{ matrix.goarch }}
-
-          # Tag to associate with (the one that triggered the workflow)
-          tag: ${{ github.ref }}
-
-          # If you prefer naming the release differently, adjust accordingly
-          overwrite: true
+          distribution: goreleaser
+          version: 'latest'
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
