@@ -1,4 +1,4 @@
-# file-mapper
+# 🕶 file-mapper
 
 **file-mapper** is a versatile CLI tool that combines the power of the Linux **`tree`** command (for hierarchical directory listings) and the **`cat`** command (for file content viewing)—all rolled into one convenient package. Recursively map out your project structure, filter files, and optionally display file contents (with features like line numbering). It's ideal for developers who want a comprehensive project overview or need to share both file structure and content with others (e.g., in code reviews or AI tools).
 
