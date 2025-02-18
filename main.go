@@ -44,8 +44,9 @@ func main() {
 				Usage:   "Include file content (for text files)",
 			},
 			&cli.BoolFlag{
-				Name:  "separate-content",
-				Usage: "If set, print the tree first, then print all file contents afterward",
+				Name:    "separate-content",
+				Aliases: []string{"s"},
+				Usage:   "If set, print the tree first, then print all file contents afterward",
 			},
 			&cli.StringFlag{
 				Name:    "output",
