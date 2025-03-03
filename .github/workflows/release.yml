@@ -37,7 +37,7 @@ jobs:
           user_name: sky93
           user_email: sepehr.mohaghegh@hotmail.com
           no_fork: false
-          tap: sky93/homebrew-file-mapper
+          tap: sky93/file-mapper
           formula: file-mapper
           tag: ${{github.ref}}
           revision: ${{github.sha}}
