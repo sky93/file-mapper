@@ -24,3 +24,19 @@ brews:
     install: |
       # This is how the formula installs the binary
       bin.install "file-mapper"
+
+nfpms:
+  - id: default
+    package_name: "file-mapper"
+
+    formats:
+      - deb
+      - rpm
+      - apk
+
+    maintainer: "Sepehr Mohaghegh <sepehr.mohaghegh@hotmail.com>"
+    vendor: "sky93"
+    homepage: "https://github.com/sky93/file-mapper"
+    description: "file-mapper: Combines tree and cat in one CLI for recursive project mapping and file content viewing."
+    license: "MIT"
+    bindir: "/usr/bin"
