@@ -42,13 +42,21 @@
 
 ## Installation
 
-Make sure you have Go **1.18+** installed, then run:
-
+### 1. Homebrew (macOS 10.12+)
+If you’re on macOS, you can install **file-mapper** via [Homebrew](https://brew.sh/):
 ```bash
-go install github.com/sky93/file-mapper@latest
+brew install sky93/file-mapper/file-mapper
 ```
 
-This will download, build, and install the `file-mapper` binary (the main CLI for `file-mapper`) into your Go bin directory (e.g., `~/go/bin`).
+### 2. Prebuilt Binaries (Windows, macOS, Linux)
+You can download a prebuilt binary for your operating system from the [GitHub Releases](https://github.com/sky93/file-mapper/releases) page. Once downloaded, simply place the executable in your `PATH` (e.g., `/usr/local/bin` on macOS/Linux or somewhere in your `PATH` on Windows).
+
+### 3. Install via Go
+If you have Go installed and prefer installing from source, you can do:
+```bash
+go install github.com/sky93/file-mapper/cmd/file-mapper@latest
+```
+> This command fetches and installs the latest version of **file-mapper** from the GitHub repo, placing the binary in your Go `bin` folder (usually `~/go/bin`).
 
 > **Tip**: Ensure your `~/go/bin` (or the equivalent on your system) is in your `$PATH` so that you can run `file-mapper` from anywhere.
 
@@ -81,7 +89,7 @@ go run main.go [flags...]
 | `--exclude`         | `-e`  |         | Comma-separated directories/files to exclude (e.g. `--exclude=".git,.idea,.env"`)                                |
 | `--git`             | `-g`  | `false` | Only list files tracked by Git                                                                                    |
 | `--content`         | `-c`  | `false` | Show file content (for text files)                                                                                |
-| `--separate-content`|       | `false` | Print the file listing first, then all file contents afterward (instead of inline)                                |
+| `--separate-content`| `-s`  | `true`  | Print the file listing first, then all file contents afterward (instead of inline)                                |
 | `--flat`            |       | `false` | Show a flat list instead of a tree                                                                                |
 | `--output`          | `-o`  |         | Output file path (if not provided, prints to stdout)                                                              |
 | `--line-numbers`    |       | `false` | Show line numbers for file content                                                                                |
