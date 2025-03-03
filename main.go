@@ -47,6 +47,7 @@ func main() {
 				Name:    "separate-content",
 				Aliases: []string{"s"},
 				Usage:   "If set, print the tree first, then print all file contents afterward",
+				Value:   true,
 			},
 			&cli.StringFlag{
 				Name:    "output",
