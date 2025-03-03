@@ -8,11 +8,13 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
+var version = "dev"
+
 func main() {
 	app := &cli.App{
 		Name:     "Project Mapper",
 		Usage:    "A simple tool to map your project tree and file contents.",
-		Version:  "v0.0.1",
+		Version:  version,
 		Commands: []*cli.Command{},
 		Flags: []cli.Flag{
 			&cli.StringFlag{
