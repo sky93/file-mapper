@@ -1,0 +1,26 @@
+project_name: file-mapper
+
+builds:
+  - id: file-mapper
+    main: ./main.go
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+
+brews:
+  - name: file-mapper
+    tap:
+      owner: sky93
+      name: homebrew-file-mapper
+    homepage: "https://github.com/sky93/file-mapper"
+    description: "file-mapper: Combines tree and cat in one CLI for recursive project mapping and file content viewing."
+    install: |
+      # This is how the formula installs the binary
+      bin.install "file-mapper"
+    # If you only have one build, you can omit this line
+    # or specify which build "id" you want the formula to use:
+    # build: file-mapper
