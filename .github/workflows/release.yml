@@ -29,3 +29,16 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      -
+        name: Update Homebrew formula
+        uses: dawidd6/action-homebrew-bump-formula@v4
+        with:
+          token: ${{secrets.TOKEN}}
+          user_name: sky93
+          user_email: sepehr.mohaghegh@hotmail.com
+          no_fork: false
+          tap: sky93/homebrew-file-mapper
+          formula: file-mapper
+          tag: ${{github.ref}}
+          revision: ${{github.sha}}
+          force: true
