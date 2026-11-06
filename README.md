@@ -45,7 +45,7 @@
 ### 1. Homebrew (macOS 10.12+)
 If you’re on macOS, you can install **file-mapper** via [Homebrew](https://brew.sh/):
 ```bash
-brew install sky93/file-mapper/file-mapper
+brew install sky93/tap/file-mapper
 ```
 
 ### 2. Prebuilt Binaries (Windows, macOS, Linux)
